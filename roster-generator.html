@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Lineup Generator</title>
+    <style>
+        body { font-family: Arial, sans-serif; text-align: center; }
+        button { padding: 10px 20px; background-color: #002255; color: white; border: none; cursor: pointer; }
+        #lineup { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>BYU Dream Lineup Generator</h1>
+    <button onclick="generateLineup()">Generate Lineup</button>
+    <div id="lineup"></div>
+
+    <script>
+        const players = [
+            'QB: Jake Retzlaff', 'WR: Chase Roberts', 'WR: Darius Lassiter', 
+            'RB: LJ Martin', 'TE: Isaac Rex', 'LB: Jack Kelley', 'QB: Ty Detmer'
+            , 'LB: Harrison Taggert'
+        ];
+
+        function generateLineup() {
+            const lineupDiv = document.getElementById('lineup');
+            lineupDiv.innerHTML = '<h3>Starting Lineup</h3><ul>' + 
+                players.sort(() => Math.random() - 0.5)
+                       .map(player => `<li>${player}</li>`)
+                       .join('') + 
+                '</ul>';
+        }
+    </script>
+</body>
+</html>
